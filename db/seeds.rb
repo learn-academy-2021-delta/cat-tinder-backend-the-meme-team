@@ -1,23 +1,23 @@
 memes = [
     {
-        name: "Felix",
-        url: "http://google.com",
-        description: "a warm fire"
+        name: 'Felix',
+        url: 'http://google.com',
+        description: 'a warm fire'
     },
     {
-        name: "Lola",
-        url: "http://google.com",
-        description: "hairball fetish"
+        name: 'Lola',
+        url: 'http://google.com',
+        description: 'hairball fetish'
     },
     {
-        name: "Toast",
-        url: "http://google.com",
-        description: "warm butter"
+        name: 'Toast',
+        url: 'http://google.com',
+        description: 'warm butter'
     },
     {
-        name: "Chesire",
-        url: "http://google.com",
-        description: "useless advice"
+        name: 'Chesire',
+        url: 'http://google.com',
+        description: 'useless advice'
     }
 ]
 
