@@ -6,13 +6,21 @@ class MemesController < ApplicationController
 
       def create
         meme = Meme.create(meme_params)
-        render json: meme
+        if meme.valid?
+          render json: meme
+        else
+          render json: meme.errors, status: 422
+        end
       end
 
       def update
         meme = Meme.find(params[:id])
         meme.update(meme_params)
-        render json: meme
+        if meme.valid?
+          render json: meme
+        else
+          render json: meme.errors, status: 422
+        end
       end
 
       def destroy
