@@ -68,16 +68,15 @@ RSpec.describe "Memes", type: :request do
         meme: {
           name: 'Rob',
           url: 'google.com',
-          description: 'Rob Meme'
+          description: 'This is a Rob Meme'
         }
       }
       post '/memes', params: meme_params
       meme = Meme.first
-      p Meme.errors
       delete "/memes/#{meme.id}"
       expect(response).to have_http_status(200)
-      memes = Meme.all
-      expect(memes).to be_empty
+      meme = Meme.first
+      expect(meme).to eq nil
     end
   end
 
@@ -130,7 +129,7 @@ RSpec.describe "Memes", type: :request do
         }
       }
       post '/memes', params: meme_params
-      old_meme = Meme.first
+      meme = Meme.first
       # p Meme.all
       meme_params = {
         meme: {
@@ -140,7 +139,7 @@ RSpec.describe "Memes", type: :request do
         }
       }
       
-      patch "/memes/#{old_meme.id}", params: meme_params
+      patch "/memes/#{meme.id}", params: meme_params
       meme = JSON.parse(response.body)
       expect(response).to have_http_status(422)
       expect(meme['name']).to include "can't be blank"
